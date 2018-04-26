@@ -51,24 +51,28 @@ public class MainActivity extends AppCompatActivity {
         rootView.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
+                Log.d("MainActivity", "触摸了跟布局");
                 return true;
             }
         });
         layView.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
+                Log.d("MainActivity", "触摸了layView");
                 return false;
             }
         });
         bt.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
+                Log.d("MainActivity", "触摸了bt");
                 return false;
             }
         });
         bt2.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
+                Log.d("MainActivity", "触摸了bt2");
 
                 return false;
             }
