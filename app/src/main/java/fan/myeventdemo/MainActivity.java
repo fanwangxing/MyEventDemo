@@ -11,6 +11,8 @@ import android.widget.Button;
 public class MainActivity extends AppCompatActivity {
 
     private View windowView,rootView,layView,bt,bt2;
+    boolean viewHanded;
+    boolean handed;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,21 +54,23 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 Log.d("MainActivity", "触摸了跟布局");
-                return true;
+                return false;
             }
         });
         layView.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 Log.d("MainActivity", "触摸了layView");
-                return false;
+                return true;
             }
         });
         bt.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 Log.d("MainActivity", "触摸了bt");
+                layView.dispatchTouchEvent(event);
                 return false;
+
             }
         });
         bt2.setOnTouchListener(new View.OnTouchListener() {
@@ -78,14 +82,24 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-//
+
 //    @Override
-//    public boolean dispatchTouchEvent(MotionEvent ev) {
-//        return super.dispatchTouchEvent(ev);
+//    public boolean dispatchTouchEvent(MotionEvent event) {
+////                Log.d("MainActivity", "rootView:"+rootView.dispatchTouchEvent(event));
+////        Log.d("MainActivity", "layView:"+layView.dispatchTouchEvent(event));
+////        Log.d("MainActivity", "bt:"+bt.dispatchTouchEvent(event));
+////        Log.d("MainActivity", "bt2:"+bt2.dispatchTouchEvent(event));
+//        Log.d("MainActivity", "dispatchTouchEvent==" + event.getAction());
+//        viewHanded = rootView.dispatchTouchEvent(event);
+//        if(!viewHanded){
+//            handed = onTouchEvent(event);
+//        }
+//        return handed||viewHanded;
 //    }
-//
+
 //    @Override
 //    public boolean onTouchEvent(MotionEvent event) {
-//        return super.onTouchEvent(event);
+//
+//        return false;
 //    }
 }
