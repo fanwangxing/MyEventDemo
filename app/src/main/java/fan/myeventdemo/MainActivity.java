@@ -61,13 +61,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 Log.d("MainActivity", "触摸了layView");
-                return true;
+                return false;
             }
         });
         bt.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 Log.d("MainActivity", "触摸了bt");
+                ((ViewGroup) layView).onInterceptTouchEvent(event);
                 layView.dispatchTouchEvent(event);
                 return false;
 
